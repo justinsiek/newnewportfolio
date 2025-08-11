@@ -115,7 +115,7 @@ export default function Loader({ onComplete }: LoaderProps) {
         transition: { duration: 1.5, ease: [0.215, 0.61, 0.355, 1] },
       });
       const collapse = collapseControls.start({
-        clipPath: `inset(calc(50% - 18px) 0 calc(50% - 30px) 0)`,
+        clipPath: `inset(calc(50% - 18px) 0 calc(50% - 28px) 0)`,
         transition: { duration: 1.7, ease: [0.19, 1, 0.22, 1] },
       });
       await Promise.all([slideDown, collapse]);
@@ -187,8 +187,8 @@ export default function Loader({ onComplete }: LoaderProps) {
                   rgba(255,255,255,0.9) 0%,
                   rgba(255,255,255,0.9) calc(50% - 18px),
                   transparent calc(50% - 18px),
-                  transparent calc(50% + 30px),
-                  rgba(255,255,255,0.9) calc(50% + 18px),
+                  transparent calc(50% + 28px),
+                  rgba(255,255,255,0.9) calc(50% + 28px),
                   rgba(255,255,255,0.9) 100%
                 )`,
             }}
