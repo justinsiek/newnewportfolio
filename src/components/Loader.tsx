@@ -24,7 +24,7 @@ const WORDS: string[] = [
   "សួស្តី",
   "Hola",
   "안녕하세요",
-  "Hello",
+  "Hi",
   "你好",
   "Bonjour",
   "こんにちは",
@@ -35,7 +35,7 @@ const WORDS: string[] = [
   "សួស្តី",
   "Hola",
   "안녕하세요",
-  "Hello",
+  "Hi",
   "你好",
   "Bonjour",
   "こんにちは",
@@ -46,7 +46,7 @@ const WORDS: string[] = [
   "សួស្តី",
   "Hola",
   "안녕하세요",
-  "Hello",
+  "Hi",
   "你好",
   "Bonjour",
   "こんにちは",
@@ -57,7 +57,7 @@ const WORDS: string[] = [
   "សួស្តី",
   "Hola",
   "안녕하세요",
-  "Hello",
+  "Hi",
   "你好",
   "Bonjour",
   "こんにちは",
@@ -81,11 +81,11 @@ export default function Loader({ onComplete }: LoaderProps) {
   // Post-collapse: reveal the suffix on the right
   const suffixRevealControls = useAnimation();
 
-  // Determine which "Hello" is the landing one (use the last occurrence)
-  const landingIndex = useMemo(() => WORDS.lastIndexOf("Hello"), []);
+  // Determine which "Hi" is the landing one (use the last occurrence)
+  const landingIndex = useMemo(() => WORDS.lastIndexOf("Hi"), []);
 
   // Final combined text used to size the container to keep centering stable
-  const FINAL_FULL_TEXT = "Hello, my name is Justin.";
+  const FINAL_FULL_TEXT = "Hi, my name is Justin.";
 
   // Side effect to run the animation sequence once on mount
   useEffect(() => {
@@ -193,6 +193,9 @@ export default function Loader({ onComplete }: LoaderProps) {
                 )`,
             }}
           />
+          {/* Additional top and bottom fades for a softer edge */}
+          <div className="pointer-events-none absolute inset-x-0 top-0 h-20 z-20 bg-gradient-to-b from-white to-transparent" />
+          <div className="pointer-events-none absolute inset-x-0 bottom-0 h-20 z-20 bg-gradient-to-t from-white to-transparent" />
 
           {/* The group of words that scrolls upward */}
           <motion.div className="relative pl-[6px] sm:pl-2" animate={wordsControls} dir="ltr">
