@@ -4,6 +4,7 @@ import React, { useEffect, useMemo } from "react";
 import { motion, useAnimation } from "framer-motion";
 
 const DURATION = 5
+const END_DELAY_MS = 20000
 
 const WORDS: string[] = [
   "Привет",
@@ -71,12 +72,20 @@ type LoaderProps = {
 
 // The Loader component orchestrates: progress bar grow, words scroll, progress fade, and final collapse
 export default function Loader({ onComplete }: LoaderProps) {
-  // Imperative controller for the progress bar animation (scaleX and fadeout)
+  // Imperative controller for the progress bar animation (scaleX and fade/slide)
   const progressControls = useAnimation();
   // Imperative controller for the vertical words scrolling
   const wordsControls = useAnimation();
   // Imperative controller for the final collapse (clip-path inset)
   const collapseControls = useAnimation();
+  // Post-collapse: reveal the suffix on the right
+  const suffixRevealControls = useAnimation();
+
+  // Determine which "Hello" is the landing one (use the last occurrence)
+  const landingIndex = useMemo(() => WORDS.lastIndexOf("Hello"), []);
+
+  // Final combined text used to size the container to keep centering stable
+  const FINAL_FULL_TEXT = "Hello, my name is Justin.";
 
   // Side effect to run the animation sequence once on mount
   useEffect(() => {
@@ -111,6 +120,18 @@ export default function Loader({ onComplete }: LoaderProps) {
       });
       await Promise.all([slideDown, collapse]);
 
+      // After collapse: reveal suffix on the right (no left shift needed)
+      const suffixReveal = suffixRevealControls.start({
+        clipPath: "inset(0% 0% 0% 0%)",
+        opacity: 1,
+        letterSpacing: "0em",
+        transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] },
+      });
+      await Promise.all([suffixReveal]);
+
+      // Hold the final state briefly before exiting to the hero
+      await new Promise((resolve) => setTimeout(resolve, END_DELAY_MS));
+
       // Notify parent that the loader sequence is done (if still mounted)
       if (!cancelled) onComplete?.();
     }
@@ -123,7 +144,7 @@ export default function Loader({ onComplete }: LoaderProps) {
       cancelled = true;
     };
     // Controllers and callback are dependencies so effect rebinds correctly if they change
-  }, [collapseControls, onComplete, progressControls, wordsControls]);
+  }, [collapseControls, onComplete, progressControls, suffixRevealControls, wordsControls]);
 
   // Memoize the initial style for the progress bar so the object identity is stable between renders
   const progressInitial = useMemo(
@@ -174,11 +195,37 @@ export default function Loader({ onComplete }: LoaderProps) {
           />
 
           {/* The group of words that scrolls upward */}
-          <motion.div className="relative" animate={wordsControls}>
+          <motion.div className="relative pl-[6px] sm:pl-2" animate={wordsControls} dir="ltr">
             {/* Render each word on its own line at a large size for readability during the scroll */}
             {WORDS.map((word, index) => (
-              <span key={index} className="block text-[2rem] sm:text-[2rem] leading-tight">
-                {word}
+              <span
+                key={index}
+                className={
+                  "block text-[2rem] sm:text-[2rem] leading-tight " +
+                  (index !== landingIndex ? "-ml-[6px] sm:-ml-2" : "")
+                }
+              >
+                {index === landingIndex ? (
+                  <span className="relative inline-block">
+                    {/* Invisible placeholder establishes the final width so line stays centered */}
+                    <span className="invisible">{FINAL_FULL_TEXT}</span>
+                    {/* Overlay actual animated content centered within placeholder width */}
+                    <span className="absolute inset-0 flex items-baseline justify-center whitespace-pre">
+                      <motion.span className="inline-block">
+                        {word}
+                      </motion.span>
+                      <motion.span
+                        className="inline-block will-change-[clip-path,opacity,letter-spacing] transform-gpu"
+                        initial={{ clipPath: "inset(0% 100% 0% 0%)", opacity: 0.9, letterSpacing: "0.02em" }}
+                        animate={suffixRevealControls}
+                      >
+                        {", my name is Justin."}
+                      </motion.span>
+                    </span>
+                  </span>
+                ) : (
+                  word
+                )}
               </span>
             ))}
           </motion.div>
