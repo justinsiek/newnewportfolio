@@ -93,9 +93,12 @@ export default function Loader({ onComplete }: LoaderProps) {
         transition: { duration: 0.25, ease: [0.215, 0.61, 0.355, 1] },
       });
 
+      const collapseEndHeight = 36;
+      const half = collapseEndHeight / 2;
+
       await collapseControls.start({
-        clipPath: "polygon(0% 50%, 100% 50%, 100% 50%, 0% 50%)",
-        transition: { duration: 3, ease: [0.19, 1, 0.22, 1] },
+        clipPath: `inset(calc(50% - ${half}px) 0 calc(50% - ${half}px) 0)`,
+        transition: { duration: 2, ease: [0.19, 1, 0.22, 1] },
       });
 
       if (!cancelled) onComplete?.();
@@ -123,15 +126,24 @@ export default function Loader({ onComplete }: LoaderProps) {
       </div>
 
       <motion.div
-        className="relative h-full w-full flex items-center justify-center flex-col bg-white overflow-hidden z-20"
+        initial={{ clipPath: "inset(0 0 0 0)" }}
         animate={collapseControls}
+        className="relative h-full w-full flex items-center justify-center flex-col bg-white overflow-hidden z-20 will-change-[clip-path]"
       >
         <div className="relative overflow-hidden h-[32rem]">
           <div
             className="absolute inset-0 z-10 pointer-events-none"
             style={{
               background:
-                "linear-gradient(to bottom, rgba(255,255,255,0.9), rgba(255,255,255,0.9) 47%, transparent, transparent 47%, transparent, transparent 55%, rgba(255,255,255,0.9) 50%, rgba(255,255,255,0.9))",
+                `linear-gradient(
+                  to bottom,
+                  rgba(255,255,255,0.9) 0%,
+                  rgba(255,255,255,0.9) calc(50% - 18px),
+                  transparent calc(50% - 18px),
+                  transparent calc(50% + 18px),
+                  rgba(255,255,255,0.9) calc(50% + 18px),
+                  rgba(255,255,255,0.9) 100%
+                )`,
             }}
           />
           <motion.div className="relative" animate={wordsControls}>
