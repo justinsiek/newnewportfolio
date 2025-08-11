@@ -12,10 +12,10 @@ const WORDS: string[] = [
   "សួស្តី",
   "Hola",
   "안녕하세요",
-  "Hello",
-  "你好",
-  "Bonjour",
   "こんにちは",
+  "Bonjour",
+  "你好",
+  "שלום",
   "Hej",
   "Привет",
   "Ciao",
@@ -56,7 +56,7 @@ const WORDS: string[] = [
   "សួស្តី",
   "Hola",
   "안녕하세요",
-  "Hello (Lands on this one)",
+  "Hello",
   "你好",
   "Bonjour",
   "こんにちは",
@@ -100,17 +100,16 @@ export default function Loader({ onComplete }: LoaderProps) {
       // Wait until both the progress bar and the words movement complete
       await Promise.all([progress, wordsMove]);
 
-      // Fade out the progress bar once the initial animations finish
-      await progressControls.start({
-        opacity: 0,
-        transition: { duration: 0.25, ease: [0.215, 0.61, 0.355, 1] },
+      // Slide the progress bar down while the container collapses at the same time
+      const slideDown = progressControls.start({
+        y: "100%",
+        transition: { duration: 1.5, ease: [0.215, 0.61, 0.355, 1] },
       });
-
-      // Collapse the full-screen loader to a centered horizontal band using CSS clip-path inset
-      await collapseControls.start({
+      const collapse = collapseControls.start({
         clipPath: `inset(calc(50% - 18px) 0 calc(50% - 30px) 0)`,
         transition: { duration: 1.7, ease: [0.19, 1, 0.22, 1] },
       });
+      await Promise.all([slideDown, collapse]);
 
       // Notify parent that the loader sequence is done (if still mounted)
       if (!cancelled) onComplete?.();
@@ -137,7 +136,7 @@ export default function Loader({ onComplete }: LoaderProps) {
     // Fixed overlay that covers the viewport while the loader is visible
     <div className="fixed inset-0 overflow-hidden z-50">
       {/* Progress bar area pinned to the bottom of the screen */}
-      <div className="absolute bottom-0 left-0 h-[5vh] w-full z-30">
+      <div className="absolute bottom-0 left-0 h-[5vh] w-full z-30 overflow-hidden">
         {/* The progress bar itself; grows horizontally from the left */}
         <motion.div
           className="h-full w-full bg-black origin-left"
