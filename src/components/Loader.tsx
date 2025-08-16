@@ -3,8 +3,8 @@
 import React, { useEffect, useMemo } from "react";
 import { motion, useAnimation } from "framer-motion";
 
-const DURATION = 6
-const END_DELAY_MS = 20000
+const DURATION = 5
+const END_DELAY_MS = 1000
 
 const WORDS: string[] = [
   "Привет",
@@ -97,13 +97,13 @@ export default function Loader({ onComplete }: LoaderProps) {
       // Start the progress bar animation (scaleX from 0 to 1 over DURATION)
       const progress = progressControls.start({
         scaleX: 1,
-        transition: { duration: DURATION, ease: [0.6, 0, 0.2, 1] },
+        transition: { duration: DURATION, ease: [0.77, 0, 0.175, 1] },
       });
 
       // Start the words group vertical movement (scroll upwards to -80%)
       const wordsMove = wordsControls.start({
         y: "-80%",
-        transition: { duration: DURATION, ease: [0.6, 0, 0.2, 1] },
+        transition: { duration: DURATION, ease: [0.77, 0, 0.175, 1] },
       });
 
       // Wait until both the progress bar and the words movement complete
