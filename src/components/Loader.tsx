@@ -129,8 +129,12 @@ export default function Loader({ onComplete }: LoaderProps) {
       });
       await Promise.all([suffixReveal]);
 
-      // Hold the final state briefly before exiting to the hero
-      await new Promise((resolve) => setTimeout(resolve, END_DELAY_MS));
+      await new Promise((resolve) => setTimeout(resolve, 1000));
+      // Final elegant collapse into a thin center line (start slow, end fast)
+      await collapseControls.start({
+        clipPath: "inset(50% 0 50% 0)",
+        transition: { duration: 0.6, ease: "easeIn" },
+      });
 
       // Notify parent that the loader sequence is done (if still mounted)
       if (!cancelled) onComplete?.();
@@ -173,7 +177,7 @@ export default function Loader({ onComplete }: LoaderProps) {
         // Bind the collapse controller to this container to drive the final collapse animation
         animate={collapseControls}
         // White background, centered content, and overflow hidden so clipping is clean
-        className="relative h-full w-full flex items-center justify-center flex-col bg-white overflow-hidden z-20 will-change-[clip-path]"
+        className="relative h-full w-full flex items-center justify-center flex-col bg-white overflow-hidden z-20 will-change-[clip-path] font-light"
       >
         {/* The viewport for the scrolling words; overflow hidden to create a window */}
         <div className="relative overflow-hidden h-[32rem]">
@@ -185,8 +189,8 @@ export default function Loader({ onComplete }: LoaderProps) {
               background: `linear-gradient(
                   to bottom,
                   rgba(255,255,255,0.9) 0%,
-                  rgba(255,255,255,0.9) calc(50% - 18px),
-                  transparent calc(50% - 18px),
+                  rgba(255,255,255,0.9) calc(50% - 12px),
+                  transparent calc(50% - 12px),
                   transparent calc(50% + 28px),
                   rgba(255,255,255,0.9) calc(50% + 28px),
                   rgba(255,255,255,0.9) 100%
