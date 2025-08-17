@@ -12,6 +12,23 @@ export default function Home() {
     if (!showLoader) setPlayReveal(true);
   }, [showLoader]);
 
+  const heroContainer = {
+    hidden: {},
+    show: {
+      transition: { staggerChildren: 0.08, delayChildren: 0.05 },
+    },
+  };
+
+  const heroLine = {
+    hidden: { opacity: 0, x: 24, scaleX: 1.02 },
+    show: {
+      opacity: 1,
+      x: 0,
+      scaleX: 1,
+      transition: { duration: 0.7 },
+    },
+  };
+
   return (
     <div className="min-h-screen w-screen flex flex-col overflow-hidden bg-white">
       <AnimatePresence>
@@ -41,18 +58,43 @@ export default function Home() {
 </header>
 
           {/* Top half */}
-          <div className="mx-auto px-4 md:px-24 md:pb-4 pb-9 h-[45vh] flex items-end md:items-center">
+          <div className="mx-auto px-2 md:px-24 md:pb-4 pb-9 h-[45vh] flex items-end md:items-center">
             <motion.div
               initial={{ opacity: 0, y: 8 }}
               animate={playReveal ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, ease: "easeOut" }}
             >
-              <div className="font-light leading-[0.9] text-neutral-900 space-y-2 md:space-y-0">
-                <span className="block text-[clamp(3rem,14vw,7.5rem)] md:text-[clamp(2.2rem,5vw,7.5rem)] tracking-[0.04em]">CRAFTING</span>
-                <span className="block text-[clamp(3rem,14vw,7.5rem)] md:text-[clamp(2.2rem,5vw,7.5rem)] tracking-[0.04em]">DATA</span>
-                <span className="block text-[clamp(3rem,14vw,7.5rem)] md:text-[clamp(2.2rem,5vw,7.5rem)] tracking-[0.04em]">DRIVEN</span>
-                <span className="block text-[clamp(3rem,14vw,7.5rem)] md:text-[clamp(2.2rem,5vw,7.5rem)] tracking-[0.04em]">EXPERIENCES.</span>
-              </div>
+              <motion.div
+                className="font-light leading-[0.9] text-neutral-900 space-y-2 md:space-y-0"
+                variants={heroContainer}
+                initial="hidden"
+                animate={playReveal ? "show" : undefined}
+              >
+                <motion.span
+                  className="block origin-right will-change-transform text-[clamp(3rem,14vw,7.5rem)] md:text-[clamp(2.2rem,5vw,7.5rem)] tracking-[0.04em]"
+                  variants={heroLine}
+                >
+                  CRAFTING
+                </motion.span>
+                <motion.span
+                  className="block origin-right will-change-transform text-[clamp(3rem,14vw,7.5rem)] md:text-[clamp(2.2rem,5vw,7.5rem)] tracking-[0.04em]"
+                  variants={heroLine}
+                >
+                  DATA
+                </motion.span>
+                <motion.span
+                  className="block origin-right will-change-transform text-[clamp(3rem,14vw,7.5rem)] md:text-[clamp(2.2rem,5vw,7.5rem)] tracking-[0.04em]"
+                  variants={heroLine}
+                >
+                  DRIVEN
+                </motion.span>
+                <motion.span
+                  className="block origin-right will-change-transform text-[clamp(3rem,14vw,7.5rem)] md:text-[clamp(2.2rem,5vw,7.5rem)] tracking-[0.04em]"
+                  variants={heroLine}
+                >
+                  EXPERIENCES.
+                </motion.span>
+              </motion.div>
             </motion.div>
           </div>
           {/* Bottom half */}
