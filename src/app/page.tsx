@@ -29,31 +29,29 @@ export default function Home() {
           />
           {/* Top navigation */}
           <header className="w-full">
-            <div className="mx-auto  px-6 py-4 flex items-center justify-between text-sm tracking-wide text-neutral-700 uppercase">
-              <div>SIEK ©2025</div>
-              <nav className="flex items-center gap-6">
-                <a className="hover:text-black" href="#">About me</a>
-                <a className="hover:text-black" href="#">Contact</a>
-                <a className="hover:text-black" href="#">Blog ↗</a>
-              </nav>
-            </div>
-          </header>
+  <div className="mx-auto md:px-6 py-4 flex items-center justify-center md:justify-between text-sm tracking-wide text-neutral-700 uppercase">
+    <div className="hidden md:block">JUSTIN SIEK ©2025</div>
+    <nav className="flex items-center gap-6">
+      <a className="hover:text-black" href="#">Projects</a>
+      <a className="hover:text-black" href="#">Work</a>
+      <a className="hover:text-black" href="#">Contact</a>
+      <a className="hover:text-black" href="#">Resume ↗</a>
+    </nav>
+  </div>
+</header>
 
           {/* Top half */}
-          <div className="mx-auto px-6 md:px-24 md:pb-4 pb-9 h-[45vh] flex items-center">
+          <div className="mx-auto px-4 md:px-24 md:pb-4 pb-9 h-[45vh] flex items-end md:items-center">
             <motion.div
               initial={{ opacity: 0, y: 8 }}
               animate={playReveal ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, ease: "easeOut" }}
             >
-              <div className="grid grid-cols-1 md:grid-cols-12 gap-8">
-                <div className="md:col-span-8">
-                  <h1 className="font-light leading-[0.9] text-neutral-900">
-                    <span className="block text-[clamp(3rem,14vw,7.5rem)] sm:text-[clamp(2.2rem,12vw,7.5rem)] tracking-[0.04em]">I TURN DATA</span>
-                    <span className="block text-[clamp(3rem,14vw,7.5rem)] sm:text-[clamp(2.2rem,12vw,7.5rem)] tracking-[0.04em]">INTO</span>
-                    <span className="block text-[clamp(3rem,14vw,7.5rem)] sm:text-[clamp(2.2rem,12vw,7.5rem)] tracking-[0.04em]">EXPERIENCES.</span>
-                  </h1>
-                </div>
+              <div className="font-light leading-[0.9] text-neutral-900 space-y-2 md:space-y-0">
+                <span className="block text-[clamp(3rem,14vw,7.5rem)] md:text-[clamp(2.2rem,5vw,7.5rem)] tracking-[0.04em]">CRAFTING</span>
+                <span className="block text-[clamp(3rem,14vw,7.5rem)] md:text-[clamp(2.2rem,5vw,7.5rem)] tracking-[0.04em]">DATA</span>
+                <span className="block text-[clamp(3rem,14vw,7.5rem)] md:text-[clamp(2.2rem,5vw,7.5rem)] tracking-[0.04em]">DRIVEN</span>
+                <span className="block text-[clamp(3rem,14vw,7.5rem)] md:text-[clamp(2.2rem,5vw,7.5rem)] tracking-[0.04em]">EXPERIENCES.</span>
               </div>
             </motion.div>
           </div>
