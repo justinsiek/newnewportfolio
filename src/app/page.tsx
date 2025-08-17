@@ -29,10 +29,9 @@ export default function Home() {
           />
           {/* Top navigation */}
           <header className="w-full">
-            <div className="mx-auto max-w-7xl px-6 py-4 flex items-center justify-between text-[10px] tracking-wide text-neutral-700 uppercase">
+            <div className="mx-auto  px-6 py-4 flex items-center justify-between text-sm tracking-wide text-neutral-700 uppercase">
               <div>SIEK ©2025</div>
               <nav className="flex items-center gap-6">
-                <a className="hover:text-black" href="#">Top</a>
                 <a className="hover:text-black" href="#">About me</a>
                 <a className="hover:text-black" href="#">Contact</a>
                 <a className="hover:text-black" href="#">Blog ↗</a>
@@ -40,8 +39,8 @@ export default function Home() {
             </div>
           </header>
 
-          {/* Hero */}
-          <main className="mx-auto max-w-7xl px-6 pt-10 md:pt-20">
+          {/* Top half */}
+          <div className="mx-auto px-6 md:px-24 md:pb-4 pb-9 h-[45vh] flex items-center">
             <motion.div
               initial={{ opacity: 0, y: 8 }}
               animate={playReveal ? { opacity: 1, y: 0 } : {}}
@@ -50,22 +49,16 @@ export default function Home() {
               <div className="grid grid-cols-1 md:grid-cols-12 gap-8">
                 <div className="md:col-span-8">
                   <h1 className="font-light leading-[0.9] text-neutral-900">
-                    <span className="block text-[clamp(2.2rem,12vw,7.5rem)] tracking-[0.04em]">I TURN DATA INTO</span>
-                    <span className="block text-[clamp(2.2rem,12vw,7.5rem)] tracking-[0.04em]">EXPERIENCES.</span>
+                    <span className="block text-[clamp(3rem,14vw,7.5rem)] sm:text-[clamp(2.2rem,12vw,7.5rem)] tracking-[0.04em]">I TURN DATA</span>
+                    <span className="block text-[clamp(3rem,14vw,7.5rem)] sm:text-[clamp(2.2rem,12vw,7.5rem)] tracking-[0.04em]">INTO</span>
+                    <span className="block text-[clamp(3rem,14vw,7.5rem)] sm:text-[clamp(2.2rem,12vw,7.5rem)] tracking-[0.04em]">EXPERIENCES.</span>
                   </h1>
                 </div>
-                <div className="md:col-span-4 md:mt-6">
-                  <p className="text-[11px] leading-relaxed text-neutral-600 max-w-xs md:ml-auto">
-                    I'm passionate about web technology and focused on the user experience. I aim to create web experiences that are surprising, exciting and memorable on top of that.
-                  </p>
-                </div>
               </div>
-
-              <p className="mt-10 text-[clamp(1rem,3vw,2.25rem)] font-medium text-neutral-300">
-                SWE and Data Scientist based in the Los Angeles area
-              </p>
             </motion.div>
-          </main>
+          </div>
+          {/* Bottom half */}
+          <div className="h-[50vh]"></div>
         </div>
       )}
     </div>
