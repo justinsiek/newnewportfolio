@@ -42,7 +42,7 @@ export default function Home() {
             className="pointer-events-none absolute left-1/2 top-[50vh] h-[2px] bg-black origin-center z-20"
             initial={{ x: "-50%", y: "-50%", width: 0, opacity: 1 }}
             animate={playReveal ? { width: "95%" } : {}}
-            transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1], delay: 0.12 }}
+            transition={{ duration: 0.6, ease: [0.2, 0.8, 0.2, 1], delay: 0.12 }}
           />
           {/* Top navigation */}
           <motion.header
