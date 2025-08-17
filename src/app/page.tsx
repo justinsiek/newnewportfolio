@@ -55,7 +55,7 @@ export default function Home() {
               <div className="hidden md:block">JUSTIN SIEK ©2025</div>
               <nav className="flex items-center w-full px-2 justify-between md:w-auto md:justify-normal md:gap-6">
                 <a className="hover:text-black" href="#projects">Projects</a>
-                <a className="hover:text-black" href="#work">Work</a>
+                <a className="hover:text-black" href="#work">Experience</a>
                 <a className="hover:text-black" href="#contact">Contact</a>
                 <a className="hover:text-black" href="#">Resume ↗</a>
               </nav>
@@ -63,7 +63,7 @@ export default function Home() {
           </motion.header>
 
           {/* Top half */}
-          <div className="mx-auto px-2 md:px-24 md:pb-4 pb-9 h-[45vh] flex items-end md:items-center">
+          <div className="mx-auto px-2 md:px-24 pb-8 h-[45vh] flex flex-row items-end justify-between">
             <motion.div
               initial={{ opacity: 0, y: 8 }}
               animate={playReveal ? { opacity: 1, y: 0 } : {}}
@@ -117,6 +117,7 @@ export default function Home() {
                 </motion.span>
               </motion.div>
             </motion.div>
+            <div className="text-lg tracking-tighter text-neutral-500 hidden md:block">BASED IN THE LOS ANGELES AREA</div>
           </div>
           {/* Main content */}
           <main className="px-2 md:px-24 pb-24 md:pb-32">
