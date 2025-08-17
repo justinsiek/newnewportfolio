@@ -39,10 +39,10 @@ export default function Home() {
         <div className="relative flex-1">
           {/* Center line overlay that expands to edges */}
           <motion.div
-            className="pointer-events-none absolute left-1/2 top-1/2 h-[2px] bg-black origin-center z-20"
+            className="pointer-events-none absolute left-1/2 top-[50vh] h-[2px] bg-black origin-center z-20"
             initial={{ x: "-50%", y: "-50%", width: 0, opacity: 1 }}
-            animate={playReveal ? { width: "100%" } : {}}
-            transition={{ duration: 0.6, ease: "easeOut", delay: 0.12 }}
+            animate={playReveal ? { width: "95%" } : {}}
+            transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1], delay: 0.12 }}
           />
           {/* Top navigation */}
           <motion.header
@@ -54,9 +54,9 @@ export default function Home() {
             <div className="mx-auto md:px-6 py-4 flex items-center justify-center md:justify-between text-sm tracking-wide text-neutral-700 uppercase">
               <div className="hidden md:block">JUSTIN SIEK ©2025</div>
               <nav className="flex items-center gap-6">
-                <a className="hover:text-black" href="#">Projects</a>
-                <a className="hover:text-black" href="#">Work</a>
-                <a className="hover:text-black" href="#">Contact</a>
+                <a className="hover:text-black" href="#projects">Projects</a>
+                <a className="hover:text-black" href="#work">Work</a>
+                <a className="hover:text-black" href="#contact">Contact</a>
                 <a className="hover:text-black" href="#">Resume ↗</a>
               </nav>
             </div>
@@ -118,8 +118,10 @@ export default function Home() {
               </motion.div>
             </motion.div>
           </div>
-          {/* Bottom half */}
-          <div className="h-[50vh]"></div>
+          {/* Main content */}
+          <main className="px-2 md:px-24 pb-24 md:pb-32">
+           
+          </main>
         </div>
       )}
     </div>
