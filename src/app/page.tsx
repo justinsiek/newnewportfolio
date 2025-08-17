@@ -51,9 +51,9 @@ export default function Home() {
             animate={playReveal ? { y: 0, opacity: 1 } : {}}
             transition={{ duration: 0.6, ease: "easeOut", delay: 1.2 }}
           >
-            <div className="mx-auto md:px-6 py-4 flex items-center justify-center md:justify-between text-sm tracking-wide text-neutral-700 uppercase">
+            <div className="mx-auto w-full md:px-12 py-4 flex items-center justify-center md:justify-between text-sm tracking-wide text-neutral-700 uppercase">
               <div className="hidden md:block">JUSTIN SIEK ©2025</div>
-              <nav className="flex items-center gap-6">
+              <nav className="flex items-center w-full px-2 justify-between md:w-auto md:justify-normal md:gap-6">
                 <a className="hover:text-black" href="#projects">Projects</a>
                 <a className="hover:text-black" href="#work">Work</a>
                 <a className="hover:text-black" href="#contact">Contact</a>

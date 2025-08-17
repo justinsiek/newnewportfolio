@@ -108,7 +108,7 @@ export default function Loader({ onComplete }: LoaderProps) {
 
       // Wait until both the progress bar and the words movement complete
       await Promise.all([progress, wordsMove]);
-
+      
       // Slide the progress bar down while the container collapses at the same time
       const slideDown = progressControls.start({
         y: "100%",
@@ -128,7 +128,7 @@ export default function Loader({ onComplete }: LoaderProps) {
         transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] },
       });
       await Promise.all([suffixReveal]);
-
+      await new Promise((resolve) => setTimeout(resolve, 20000));
       await new Promise((resolve) => setTimeout(resolve, 1000));
       // Final elegant collapse into a thin center line (start slow, end fast)
       await collapseControls.start({
