@@ -15,18 +15,18 @@ export default function Home() {
   const heroContainer = {
     hidden: {},
     show: {
-      transition: { staggerChildren: 0.08, delayChildren: 0.05 },
+      transition: { staggerChildren: 0.09, delayChildren: 0.12 },
     },
   };
 
-  const heroLine = {
-    hidden: { opacity: 0, x: 24, scaleX: 1.02 },
-    show: {
-      opacity: 1,
-      x: 0,
-      scaleX: 1,
-      transition: { duration: 0.7 },
-    },
+  const lineContainer = {
+    hidden: {},
+    show: { transition: { staggerChildren: 0.035 } },
+  };
+
+  const letter = {
+    hidden: { opacity: 0, x: 24 },
+    show: { opacity: 1, x: 0, transition: { duration: 0.5 } },
   };
 
   return (
@@ -42,20 +42,25 @@ export default function Home() {
             className="pointer-events-none absolute left-1/2 top-1/2 h-[2px] bg-black origin-center z-20"
             initial={{ x: "-50%", y: "-50%", width: 0, opacity: 1 }}
             animate={playReveal ? { width: "100%" } : {}}
-            transition={{ duration: 0.6, ease: "easeOut" }}
+            transition={{ duration: 0.6, ease: "easeOut", delay: 0.12 }}
           />
           {/* Top navigation */}
-          <header className="w-full">
-  <div className="mx-auto md:px-6 py-4 flex items-center justify-center md:justify-between text-sm tracking-wide text-neutral-700 uppercase">
-    <div className="hidden md:block">JUSTIN SIEK ©2025</div>
-    <nav className="flex items-center gap-6">
-      <a className="hover:text-black" href="#">Projects</a>
-      <a className="hover:text-black" href="#">Work</a>
-      <a className="hover:text-black" href="#">Contact</a>
-      <a className="hover:text-black" href="#">Resume ↗</a>
-    </nav>
-  </div>
-</header>
+          <motion.header
+            className="w-full"
+            initial={{ y: -24, opacity: 0 }}
+            animate={playReveal ? { y: 0, opacity: 1 } : {}}
+            transition={{ duration: 0.6, ease: "easeOut", delay: 1.2 }}
+          >
+            <div className="mx-auto md:px-6 py-4 flex items-center justify-center md:justify-between text-sm tracking-wide text-neutral-700 uppercase">
+              <div className="hidden md:block">JUSTIN SIEK ©2025</div>
+              <nav className="flex items-center gap-6">
+                <a className="hover:text-black" href="#">Projects</a>
+                <a className="hover:text-black" href="#">Work</a>
+                <a className="hover:text-black" href="#">Contact</a>
+                <a className="hover:text-black" href="#">Resume ↗</a>
+              </nav>
+            </div>
+          </motion.header>
 
           {/* Top half */}
           <div className="mx-auto px-2 md:px-24 md:pb-4 pb-9 h-[45vh] flex items-end md:items-center">
@@ -71,28 +76,44 @@ export default function Home() {
                 animate={playReveal ? "show" : undefined}
               >
                 <motion.span
-                  className="block origin-right will-change-transform text-[clamp(3rem,14vw,7.5rem)] md:text-[clamp(2.2rem,5vw,7.5rem)] tracking-[0.04em]"
-                  variants={heroLine}
+                  className="block origin-right will-change-transform text-[clamp(3rem,14vw,7.5rem)] md:text-[clamp(2.2rem,5vw,7.5rem)]"
+                  variants={lineContainer}
                 >
-                  CRAFTING
+                  {"CRAFTING".split("").map((ch, i) => (
+                    <motion.span key={`c-${i}`} className="inline-block" variants={letter}>
+                      {ch}
+                    </motion.span>
+                  ))}
                 </motion.span>
                 <motion.span
-                  className="block origin-right will-change-transform text-[clamp(3rem,14vw,7.5rem)] md:text-[clamp(2.2rem,5vw,7.5rem)] tracking-[0.04em]"
-                  variants={heroLine}
+                  className="block origin-right will-change-transform text-[clamp(3rem,14vw,7.5rem)] md:text-[clamp(2.2rem,5vw,7.5rem)]"
+                  variants={lineContainer}
                 >
-                  DATA
+                  {"DATA".split("").map((ch, i) => (
+                    <motion.span key={`d-${i}`} className="inline-block" variants={letter}>
+                      {ch}
+                    </motion.span>
+                  ))}
                 </motion.span>
                 <motion.span
-                  className="block origin-right will-change-transform text-[clamp(3rem,14vw,7.5rem)] md:text-[clamp(2.2rem,5vw,7.5rem)] tracking-[0.04em]"
-                  variants={heroLine}
+                  className="block origin-right will-change-transform text-[clamp(3rem,14vw,7.5rem)] md:text-[clamp(2.2rem,5vw,7.5rem)]"
+                  variants={lineContainer}
                 >
-                  DRIVEN
+                  {"DRIVEN".split("").map((ch, i) => (
+                    <motion.span key={`r-${i}`} className="inline-block" variants={letter}>
+                      {ch}
+                    </motion.span>
+                  ))}
                 </motion.span>
                 <motion.span
-                  className="block origin-right will-change-transform text-[clamp(3rem,14vw,7.5rem)] md:text-[clamp(2.2rem,5vw,7.5rem)] tracking-[0.04em]"
-                  variants={heroLine}
+                  className="block origin-right will-change-transform text-[clamp(3rem,14vw,7.5rem)] md:text-[clamp(2.2rem,5vw,7.5rem)]"
+                  variants={lineContainer}
                 >
-                  EXPERIENCES.
+                  {"EXPERIENCES.".split("").map((ch, i) => (
+                    <motion.span key={`e-${i}`} className="inline-block" variants={letter}>
+                      {ch}
+                    </motion.span>
+                  ))}
                 </motion.span>
               </motion.div>
             </motion.div>
