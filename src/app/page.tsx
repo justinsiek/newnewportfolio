@@ -25,7 +25,7 @@ export default function Home() {
   };
 
   const letter = {
-    hidden: { opacity: 0, x: 24 },
+    hidden: { opacity: 0, x: -24 },
     show: { opacity: 1, x: 0, transition: { duration: 0.5 } },
   };
 
@@ -65,8 +65,8 @@ export default function Home() {
           {/* Top half */}
           <div className="mx-auto px-2 md:px-24 pb-8 h-[45vh] flex flex-row items-end justify-between">
             <motion.div
-              initial={{ opacity: 0, y: 8 }}
-              animate={playReveal ? { opacity: 1, y: 0 } : {}}
+              initial={{ opacity: 0, x: -24 }}
+              animate={playReveal ? { opacity: 1, x: 0 } : {}}
               transition={{ duration: 0.6, ease: "easeOut" }}
             >
               <motion.div
@@ -117,7 +117,14 @@ export default function Home() {
                 </motion.span>
               </motion.div>
             </motion.div>
-            <div className="text-lg tracking-tighter text-neutral-500 hidden md:block">BASED IN THE LOS ANGELES AREA</div>
+            <motion.div
+              className="text-lg tracking-tight text-neutral-500 hidden md:block"
+              initial={{ opacity: 0, x: -24 }}
+              animate={playReveal ? { opacity: 1, x: 0 } : {}}
+              transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
+            >
+              BASED IN THE LOS ANGELES AREA
+            </motion.div>
           </div>
           {/* Main content */}
           <main className="px-2 md:px-24 pb-24 md:pb-32">
