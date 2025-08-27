@@ -3,6 +3,8 @@
 import { useEffect, useState } from "react";
 import Loader from "@/components/Loader";
 import { AnimatePresence, motion } from "framer-motion";
+import About from "@/components/About";
+import Experience from "@/components/Experience";
 
 export default function Home() {
   const [showLoader, setShowLoader] = useState(true);
@@ -129,63 +131,8 @@ export default function Home() {
           </div>
           {/* Main content */}
           <main className="px-4 md:px-26 pb-24 md:pb-32">
-            {/* ABOUT */}
-            <section id="about" className="py-6 md:py-10">
-              <div>
-                <p className="text-sm tracking-[0.24em] text-neutral-500 ml-1">ABOUT ME</p>
-
-                <h2 className="mt-4 text-[clamp(1.75rem,3.6vw,2.75rem)] leading-[1.15] tracking-tight text-neutral-900 font-light">
-                  I build data products end‑to‑end: from pipelines to models to precise interfaces.
-                </h2>
-
-                <div className="mt-6 md:mt-7 space-y-5 text-neutral-600 max-w-5xl">
-                  <p>
-                    I work at the intersection of data science and software engineering—shipping software that turns data into decisions, with low latency, high signal, and interfaces that stay out of the way.
-                  </p>
-                </div>
-
-                <div className="mt-10 border-t border-neutral-200" />
-
-                <div className="mt-8 grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12">
-                  <div className="md:col-span-4 space-y-3">
-                    <p className="text-[12px] tracking-widest text-neutral-500 uppercase">Principles</p>
-                    <div className="space-y-4 text-neutral-700">
-                      <div>
-                        <p className="text-neutral-900">Clarity</p>
-                        <p className="text-neutral-600">Reduce until the intent is unmistakable.</p>
-                      </div>
-                      <div>
-                        <p className="text-neutral-900">Restraint</p>
-                        <p className="text-neutral-600">Let whitespace and typography carry the design.</p>
-                      </div>
-                      <div>
-                        <p className="text-neutral-900">Craft</p>
-                        <p className="text-neutral-600">Precise motion and interaction, only when useful.</p>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="md:col-span-8 space-y-6">
-                    
-
-                    <div>
-                      <p className="text-[12px] tracking-widest text-neutral-500 uppercase mb-3">Approach</p>
-                      <p className="text-neutral-700">
-                        Start with the system, design for the edge cases, and refine until
-                        what remains feels inevitable.
-                      </p>
-                    </div>
-                    
-                    <div className="py-4">
-                      <p className="text-[12px] tracking-widest text-neutral-500 uppercase mb-3">Toolkit</p>
-                      <p className="text-neutral-700">TypeScript, Python, SQL, React/Next.js, AWS (Lambda/S3), LangChain/LangGraph, scikit‑learn, OpenCV.</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </section>
-
-            
+            <About />
+            <Experience />
           </main>
         </div>
       )}
