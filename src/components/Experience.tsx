@@ -7,9 +7,9 @@ export default function Experience() {
         <p className="text-sm tracking-[0.24em] text-neutral-500 ml-1">EXPERIENCE</p>
 
         <div className="relative mt-10">
-          <div className="pointer-events-none absolute left-0 top-0 bottom-0 w-px bg-neutral-200" aria-hidden />
+          <div className="pointer-events-none absolute left-0 top-1.5 bottom-0 w-px bg-neutral-200" aria-hidden />
 
-          <div className="space-y-10 md:space-y-12">
+          <div className="space-y-16 md:space-y-24">
             <div className="relative pl-8">
               <span className="absolute left-0 -translate-x-1/2 top-1.5 h-2 w-2 rounded-full bg-neutral-200" />
               <p className="text-[12px] tracking-widest text-neutral-400 uppercase">Aug 2025 — Present</p>
@@ -38,6 +38,7 @@ export default function Experience() {
             </div>
           </div>
         </div>
+        <div className="mt-10 border-t border-neutral-400" />
       </div>
     </section>
   );

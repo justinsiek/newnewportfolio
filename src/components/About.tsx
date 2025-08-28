@@ -49,7 +49,7 @@ export default function About() {
           </div>
         </div>
 
-        <div className="mt-10 border-t border-neutral-200" />
+        <div className="mt-10 border-t border-neutral-400" />
       </div>
     </section>
   );

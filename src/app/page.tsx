@@ -5,6 +5,7 @@ import Loader from "@/components/Loader";
 import { AnimatePresence, motion } from "framer-motion";
 import About from "@/components/About";
 import Experience from "@/components/Experience";
+import SelectedWork from "@/components/Work";
 
 export default function Home() {
   const [showLoader, setShowLoader] = useState(true);
@@ -133,6 +134,7 @@ export default function Home() {
           <main className="px-4 md:px-26 pb-24 md:pb-32">
             <About />
             <Experience />
+            <SelectedWork />
           </main>
         </div>
       )}
