@@ -83,6 +83,7 @@ export default function SelectedWork() {
           </article>
         ))}
       </div>
+      <div className="mt-10 border-t border-neutral-400" />
     </section>
   );
 }
