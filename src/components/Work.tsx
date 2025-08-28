@@ -4,45 +4,46 @@ export default function SelectedWork() {
   const projects = [
     {
       id: "01",
-      title: "Real‑Time Demand Forecasting",
+      title: "atrova.app",
       blurb:
-        "Low‑latency forecasts powering inventory and pricing decisions across channels.",
-      meta: ["Forecasting", "Streaming", "Retail"],
+        "Productivity app that users can text to add tasks and events to their calendar.",
+      meta: ["LangChain", "AWS", "NextJS"],
     },
     {
       id: "02",
-      title: "Document Intelligence Platform",
+      title: "Apprazer",
       blurb:
-        "Turn unstructured docs into reliable, queryable facts with measurable confidence.",
-      meta: ["OCR", "RAG", "Evaluation"],
+        "AI powered dashboard to streamline the mortgage approval process.",
+      meta: ["OpenCV", "scikit-learn", "NextJS"],
     },
+    
     {
       id: "03",
-      title: "Visual QA for Manufacturing",
+      title: "pippal.xyz",
       blurb:
-        "Inline defect detection that reduces escapes without slowing throughput.",
-      meta: ["Vision", "Edge", "Quality"],
+        "Algorithmically extracts and displays common stock patterns and other technical indicators.",
+      meta: ["NumPy", "Pandas", "NextJS"],
     },
     {
       id: "04",
-      title: "GenAI Support Triage",
+      title: "CodeBattles",
       blurb:
-        "Route and summarize tickets to cut handle time while improving resolution.",
-      meta: ["LLM", "Summarization", "Routing"],
+        "Platform for real-time coding competitions, with automated judging.",
+      meta: ["Websockets", "Flask", "NextJS"],
     },
     {
       id: "05",
-      title: "ML Feature Store",
+      title: "notori.ai",
       blurb:
-        "Single source of truth for online/offline features with lineage and SLAs.",
-      meta: ["Platforms", "Data", "Governance"],
+        "AI assistant writing platform with intelligent text manipulation.",
+      meta: ["LangChain", "AWS", "NextJS"],
     },
     {
       id: "06",
-      title: "Geospatial Risk Scoring",
+      title: "Sonder",
       blurb:
-        "Location‑aware risk surfaces for underwriting and network planning.",
-      meta: ["Geospatial", "Scoring", "Mapping"],
+        "Anonymized social media platform with Web3 authentication.",
+      meta: ["Metamask", "React", "Firebase"],
     },
   ];
 
