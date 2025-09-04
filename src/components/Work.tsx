@@ -10,7 +10,7 @@ export default function SelectedWork() {
       blurb:
         "Productivity app that users can text to add tasks and events to their calendar.",
       meta: ["LangChain", "AWS", "NextJS"],
-      imageSrc: "/AtrovaDashA.jpg",
+      imageSrc: "/atrovadasha.jpg",
     },
     {
       id: "02",
