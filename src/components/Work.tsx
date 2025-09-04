@@ -10,7 +10,7 @@ export default function SelectedWork() {
       blurb:
         "Productivity app that users can text to add tasks and events to their calendar.",
       meta: ["LangChain", "AWS", "NextJS"],
-      imageSrc: "/AtrovaDashA.png",
+      imageSrc: "/AtrovaDashA.jpg",
     },
     {
       id: "02",
@@ -39,19 +39,19 @@ export default function SelectedWork() {
     },
     {
       id: "05",
-      title: "Zotify",
-      blurb:
-        "Social media platform that displays what your friends are listening to.",
-      meta: ["React", "Firebase", "Tailwind"],
-      imageSrc: "/ZotifyDashA.jpg",
-    },
-    {
-      id: "06",
       title: "Sonder",
       blurb:
         "Anonymized social media platform with Web3 authentication.",
       meta: ["Metamask", "React", "Firebase"],
       imageSrc: "/SonderDashA.jpg",
+    },
+    {
+      id: "06",
+      title: "Zotify",
+      blurb:
+        "Social media platform that displays what your friends are listening to.",
+      meta: ["React", "Firebase", "Tailwind"],
+      imageSrc: "/ZotifyDashA.jpg",
     },
   ];
 
