@@ -16,16 +16,10 @@ function FadeInOnScroll({ children, delay = 0, y = 16, className, initialBoostMs
   const containerRef = useRef<HTMLDivElement | null>(null);
   const [isVisible, setIsVisible] = useState(false);
   const [finalDelayMs, setFinalDelayMs] = useState<number>(delay);
-  const wasVisibleOnMountRef = useRef<boolean>(false);
 
   useEffect(() => {
     const element = containerRef.current;
     if (!element) return;
-
-    // Determine if element is within viewport on initial mount (partial visibility)
-    const viewportHeight = window.innerHeight || document.documentElement.clientHeight;
-    const rect = element.getBoundingClientRect();
-    wasVisibleOnMountRef.current = rect.top < viewportHeight && rect.bottom > 0;
 
     const onFirstScroll = () => {
       hasUserScrolled = true;
@@ -36,7 +30,7 @@ function FadeInOnScroll({ children, delay = 0, y = 16, className, initialBoostMs
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            const boost = wasVisibleOnMountRef.current && !hasUserScrolled ? initialBoostMs : 0;
+            const boost = !hasUserScrolled ? initialBoostMs : 0;
             setFinalDelayMs(delay + boost);
             setIsVisible(true);
             observer.unobserve(entry.target);
