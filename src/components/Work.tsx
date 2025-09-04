@@ -1,5 +1,7 @@
 "use client";
 
+import Image from "next/image";
+
 export default function SelectedWork() {
   const projects = [
     {
@@ -8,6 +10,7 @@ export default function SelectedWork() {
       blurb:
         "Productivity app that users can text to add tasks and events to their calendar.",
       meta: ["LangChain", "AWS", "NextJS"],
+      imageSrc: "/AtrovaDashA.png",
     },
     {
       id: "02",
@@ -15,6 +18,7 @@ export default function SelectedWork() {
       blurb:
         "AI powered dashboard to streamline the mortgage approval process.",
       meta: ["OpenCV", "scikit-learn", "NextJS"],
+      imageSrc: "/ApprazerDashA.jpg",
     },
     
     {
@@ -23,6 +27,7 @@ export default function SelectedWork() {
       blurb:
         "Algorithmically extracts and displays common stock patterns and other technical indicators.",
       meta: ["NumPy", "Pandas", "NextJS"],
+      imageSrc: "/PippalDash.jpg",
     },
     {
       id: "04",
@@ -30,13 +35,15 @@ export default function SelectedWork() {
       blurb:
         "Platform for real-time coding competitions, with automated judging.",
       meta: ["Websockets", "Flask", "NextJS"],
+      imageSrc: "/CodeBattlesDashA.jpg",
     },
     {
       id: "05",
-      title: "notori.ai",
+      title: "Zotify",
       blurb:
-        "AI assistant writing platform with intelligent text manipulation.",
-      meta: ["LangChain", "AWS", "NextJS"],
+        "Social media platform that displays what your friends are listening to.",
+      meta: ["React", "Firebase", "Tailwind"],
+      imageSrc: "/ZotifyDashA.jpg",
     },
     {
       id: "06",
@@ -44,6 +51,7 @@ export default function SelectedWork() {
       blurb:
         "Anonymized social media platform with Web3 authentication.",
       meta: ["Metamask", "React", "Firebase"],
+      imageSrc: "/SonderDashA.jpg",
     },
   ];
 
@@ -58,7 +66,15 @@ export default function SelectedWork() {
             className="group border border-neutral-200 hover:border-neutral-300 transition-colors"
           >
             <div className="bg-neutral-50">
-              <div className="aspect-[16/10] w-full" />
+              <div className="relative aspect-[16/9] w-full overflow-hidden">
+                <Image
+                  src={p.imageSrc}
+                  alt={p.title}
+                  fill
+                  sizes="(min-width: 768px) 33vw, 100vw"
+                  className="object-contain object-center transition-transform duration-300 group-hover:scale-[1.02]"
+                />
+              </div>
             </div>
 
             <div className="p-4 md:p-5 space-y-2">
