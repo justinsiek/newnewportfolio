@@ -6,6 +6,14 @@ export default function SelectedWork() {
   const projects = [
     {
       id: "01",
+      title: "hhana",
+      blurb:
+        "Poker bot that mixes MCCFR baseline algorithm with exploit signals derived from over 10 million online poker hands.",
+      meta: ["React", "Firebase", "Tailwind"],
+      imageSrc: "/poker.png",
+    },
+    {
+      id: "02",
       title: "atrova.app",
       blurb:
         "Productivity app that users can text to add tasks and events to their calendar.",
@@ -13,8 +21,8 @@ export default function SelectedWork() {
       imageSrc: "/atrovadasha.jpg",
     },
     {
-      id: "02",
-      title: "Apprazer",
+      id: "03",
+      title: "Apprazer (IrvineHacks Best Use of AI in Real Estate)",
       blurb:
         "AI powered dashboard to streamline the mortgage approval process.",
       meta: ["OpenCV", "scikit-learn", "NextJS"],
@@ -22,7 +30,7 @@ export default function SelectedWork() {
     },
     
     {
-      id: "03",
+      id: "04",
       title: "pippal.xyz",
       blurb:
         "Algorithmically extracts and displays common stock patterns and other technical indicators.",
@@ -30,7 +38,7 @@ export default function SelectedWork() {
       imageSrc: "/PippalDash.jpg",
     },
     {
-      id: "04",
+      id: "05",
       title: "CodeBattles",
       blurb:
         "Platform for real-time coding competitions, with automated judging.",
@@ -38,20 +46,12 @@ export default function SelectedWork() {
       imageSrc: "/CodeBattlesDashA.jpg",
     },
     {
-      id: "05",
-      title: "Sonder",
+      id: "06",
+      title: "Sonder (IrvineHacks Best Blockchain Project)",
       blurb:
         "Anonymized social media platform with Web3 authentication.",
       meta: ["Metamask", "React", "Firebase"],
       imageSrc: "/SonderDashA.jpg",
-    },
-    {
-      id: "06",
-      title: "Zotify",
-      blurb:
-        "Social media platform that displays what your friends are listening to.",
-      meta: ["React", "Firebase", "Tailwind"],
-      imageSrc: "/ZotifyDashA.jpg",
     },
   ];
 
