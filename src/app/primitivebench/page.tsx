@@ -1,5 +1,6 @@
 import { Archivo_Black, Geist_Mono } from "next/font/google";
 import Terminal from "./Terminal";
+import MobileMenu from "./MobileMenu";
 
 const display = Archivo_Black({ weight: "400", subsets: ["latin"], display: "swap" });
 const mono = Geist_Mono({ subsets: ["latin"], display: "swap" });
@@ -10,7 +11,7 @@ export default function PrimitiveBench() {
   return (
     <div className="flex min-h-screen flex-col text-[#141414]">
       {/* Header */}
-      <header className="sticky top-0 z-30 flex h-20 items-center justify-between border-b-4 border-black bg-[#e6e4dc] px-5">
+      <header className="sticky top-0 z-30 flex h-20 items-center justify-between border-b-4 border-black bg-[#e6e4dc] px-4 sm:px-5">
         {/* Left: logo + nav */}
         <div className="flex h-full items-center gap-4">
           <div className="flex items-center gap-1">
@@ -19,13 +20,13 @@ export default function PrimitiveBench() {
             <img
               src="/monkey.png"
               alt="Primitive Bench"
-              className="h-13 w-13 shrink-0 object-contain"
+              className="h-12 w-12 shrink-0 object-contain lg:h-13 lg:w-13"
             />
-            <span className={`${mono.className} text-lg font-bold tracking-tight`}>
+            <span className={`${mono.className} text-base font-bold tracking-tight sm:text-lg`}>
               PRIMITIVE BENCH
             </span>
           </div>
-          <div className="mx-2 h-7 w-[2px] bg-black" />
+          <div className="mx-2 hidden h-7 w-[2px] bg-black lg:block" />
           <nav
             className={`${mono.className} hidden items-center gap-6 text-[15px] font-medium tracking-wide lg:flex`}
           >
@@ -42,10 +43,10 @@ export default function PrimitiveBench() {
         </div>
 
         {/* Right: icon + CTA */}
-        <div className="flex h-full items-center gap-4">
+        <div className="hidden h-full items-center gap-4 lg:flex">
           <button
             aria-label="Source"
-            className="border-2 border-black p-1.5 transition-colors hover:bg-black hover:text-white"
+            className="hidden border-2 border-black p-1.5 transition-colors hover:bg-black hover:text-white md:flex"
           >
             <svg
               width="18"
@@ -63,18 +64,19 @@ export default function PrimitiveBench() {
               <path d="M18 9a9 9 0 0 1-9 9" />
             </svg>
           </button>
-          <div className="h-7 w-[2px] bg-black" />
+          <div className="hidden h-7 w-[2px] bg-black md:block" />
           <button
             className={`${mono.className} border-2 border-black bg-[#2e46f0] px-5 py-2.5 text-[13px] font-bold tracking-wide text-white shadow-[3px_3px_0_#000000] transition-all hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[1px_1px_0_#000000]`}
           >
             GET CERTIFIED
           </button>
         </div>
+        <MobileMenu />
       </header>
 
       {/* Hero */}
       <main
-        className="relative flex-1 overflow-hidden px-10"
+        className="relative flex-1 overflow-hidden px-5 sm:px-8 lg:px-10"
         style={{
           backgroundColor: "#e9e6dd",
           backgroundImage: `
@@ -95,12 +97,12 @@ export default function PrimitiveBench() {
         />
 
         <div className="relative mx-auto max-w-[108rem]">
-          <div className="flex min-h-[calc(100vh-4rem)] flex-col items-center gap-10 pt-4 pb-16 lg:flex-row lg:items-center lg:gap-10">
+          <div className="flex flex-col items-center gap-10 pt-6 pb-16 lg:min-h-[calc(100vh-5rem)] lg:flex-row lg:items-center lg:gap-10 lg:pt-4">
             {/* Left: hero copy */}
-            <div className="flex w-full flex-col items-start text-left lg:flex-1">
+            <div className="flex w-full flex-col items-center text-center lg:flex-1 lg:items-start lg:text-left">
             {/* Headline */}
           <h1
-            className={`${display.className} text-[clamp(2.25rem,5vw,5.25rem)] leading-[0.95] tracking-[-0.04em] 2xl:text-[clamp(2.5rem,5.5vw,6rem)]`}
+            className={`${display.className} text-[clamp(2.5rem,5vw,5.25rem)] leading-[0.95] tracking-[-0.04em] 2xl:text-[clamp(2.5rem,5.5vw,6rem)]`}
             style={{ textShadow: "3px 4px 0 #ff5747" }}
           >
             <span className="block">THE BEST API,</span>
@@ -129,12 +131,12 @@ export default function PrimitiveBench() {
 
           {/* Buttons */}
           <div
-            className={`${mono.className} mt-12 flex flex-wrap items-center justify-start gap-5 text-[14px] font-bold tracking-wide`}
+            className={`${mono.className} mt-12 flex w-full flex-col items-stretch gap-4 text-[14px] font-bold tracking-wide sm:w-auto sm:flex-row sm:items-center sm:gap-5`}
           >
-            <button className="border-2 border-black bg-[#2e46f0] px-7 py-4 text-white shadow-[5px_5px_0_#141414] transition-all hover:translate-x-[5px] hover:translate-y-[5px] hover:shadow-[0px_0px_0_#141414]">
+            <button className="w-full border-2 border-black bg-[#2e46f0] px-7 py-4 text-white shadow-[5px_5px_0_#141414] transition-all hover:translate-x-[5px] hover:translate-y-[5px] hover:shadow-[0px_0px_0_#141414] sm:w-auto">
               SEE THE PRECISION MATRIX →
             </button>
-            <button className="border-2 border-black bg-[#f5f3ec] px-7 py-4 text-[#141414] shadow-[5px_5px_0_#141414] transition-all hover:translate-x-[5px] hover:translate-y-[5px] hover:shadow-[0px_0px_0_#141414]">
+            <button className="w-full border-2 border-black bg-[#f5f3ec] px-7 py-4 text-[#141414] shadow-[5px_5px_0_#141414] transition-all hover:translate-x-[5px] hover:translate-y-[5px] hover:shadow-[0px_0px_0_#141414] sm:w-auto">
               {"WHAT'S A VIBE CODER?"}
             </button>
           </div>

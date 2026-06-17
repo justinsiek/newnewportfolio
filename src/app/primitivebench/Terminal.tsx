@@ -348,7 +348,7 @@ export default function Terminal() {
 
   return (
     <div
-      className={`${mono.className} overflow-hidden border-2 border-[#ff5747] bg-[#0c100e] text-[14px] text-[#d2dbd0] shadow-[8px_8px_0_#ff5747]`}
+      className={`${mono.className} w-full overflow-hidden border-2 border-[#ff5747] bg-[#0c100e] text-[14px] text-[#d2dbd0] shadow-[8px_8px_0_#ff5747]`}
     >
       <style>{`@keyframes pb-pop{from{transform:scale(.6);opacity:0}to{transform:scale(1);opacity:1}}`}</style>
 
@@ -377,7 +377,7 @@ export default function Terminal() {
         <span className="mt-[1px] rounded-[3px] bg-[#f5cd1c] px-1.5 py-[1px] text-[10px] font-bold text-[#1a1a1a]">
           TASK
         </span>
-        <span className="whitespace-nowrap text-[#c2ccc6]">
+        <span className="break-words text-[#c2ccc6] lg:whitespace-nowrap">
           {PREFIX}
           <span style={{ color: BLUE }}>{typed(s.suffix, sufR, taskCursor, blink)}</span>
         </span>
@@ -413,7 +413,7 @@ export default function Terminal() {
 
         <div className="space-y-1.5 leading-relaxed">
           {s.lines.map((line, i) => (
-            <p key={i} className={line.indent ? "whitespace-nowrap pl-3" : "whitespace-nowrap"}>
+            <p key={i} className={line.indent ? "break-words pl-3 lg:whitespace-nowrap" : "break-words lg:whitespace-nowrap"}>
               {renderLine(line.segs, lineR(i), i === cur, blink)}
             </p>
           ))}
@@ -427,10 +427,10 @@ export default function Terminal() {
           transform: footerShown ? "translateY(0)" : "translateY(8px)",
           transition: "opacity .4s ease-out, transform .4s ease-out",
         }}
-        className="flex items-center justify-between gap-3 overflow-hidden border-t border-[#19211c] bg-[#0a1410] px-4 py-4"
+        className="flex flex-col items-start gap-1 border-t border-[#19211c] bg-[#0a1410] px-4 py-4 lg:flex-row lg:items-center lg:justify-between lg:gap-3 lg:overflow-hidden"
       >
-        <span className="whitespace-nowrap text-[#86f5ab]">{s.verdict}</span>
-        <span className="whitespace-nowrap text-[#7c877f]">{s.metric}</span>
+        <span className="text-[#86f5ab] lg:whitespace-nowrap">{s.verdict}</span>
+        <span className="text-[#7c877f] lg:whitespace-nowrap">{s.metric}</span>
       </div>
     </div>
   );
