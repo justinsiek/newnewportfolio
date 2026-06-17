@@ -78,9 +78,9 @@ export default function PrimitiveBench() {
         style={{
           backgroundColor: "#e9e6dd",
           backgroundImage: `
-            radial-gradient(900px circle at 92% -10%, rgba(245,205,28,0.55), transparent 50%),
-            radial-gradient(700px circle at -5% 20%, rgba(176,166,214,0.5), transparent 50%),
-            radial-gradient(800px circle at 105% 115%, rgba(236,176,176,0.45), transparent 50%)
+            radial-gradient(900px circle at 92% -10%, rgba(245,205,28,0.15), transparent 50%),
+            radial-gradient(800px circle at 80% 100%, rgba(255,71,60,0.14), transparent 50%),
+            radial-gradient(800px circle at 20% 100%, rgba(30,58,138,0.18), transparent 50%)
           `,
         }}
       >

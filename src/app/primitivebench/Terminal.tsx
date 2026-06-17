@@ -384,7 +384,7 @@ export default function Terminal() {
       </div>
 
       {/* Body */}
-      <div className="px-4 pt-3 pb-16">
+      <div className="px-4 pt-3 pb-32">
         <div className="mb-3 flex items-center justify-between border-b border-[#19211c] pb-3">
           <div className="flex items-center gap-2.5">
             <Image src="/claude-logo.png" alt="Claude Code" width={22} height={22} className="rounded-[5px]" />
