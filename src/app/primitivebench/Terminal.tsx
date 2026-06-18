@@ -86,10 +86,10 @@ type Scenario = {
 
 const SCENARIOS: Scenario[] = [
   {
-    suffix: "content relevance",
+    suffix: "relevance",
     lines: [
       { segs: [tx(">", DIM), tx(" add web search — cite fresh, relevant sources")] },
-      { segs: [tx("● ", ORANGE), tx("querying primitive_bench for "), tx("content relevance", TAN)] },
+      { segs: [tx("● ", ORANGE), tx("querying primitive_bench for "), tx("relevance", TAN)] },
       {
         indent: true,
         segs: [tx("└ ", TREE), tx("200", GREEN), tx(" · "), br("exa"), tx(" certified "), tx("(94/100)", DIM)],

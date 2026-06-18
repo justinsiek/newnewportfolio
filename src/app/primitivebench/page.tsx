@@ -11,7 +11,7 @@ export default function PrimitiveBench() {
   return (
     <div className="flex min-h-screen flex-col text-[#141414]">
       {/* Header */}
-      <header className="sticky top-0 z-30 flex h-20 items-center justify-between border-b-4 border-black bg-[#e6e4dc] px-4 sm:px-5">
+      <header className="sticky top-0 z-30 flex h-24 items-center justify-between border-b-4 border-black bg-[#e6e4dc] px-4 sm:px-5">
         {/* Left: logo + nav */}
         <div className="flex h-full items-center gap-4">
           <div className="flex items-center gap-1">
