@@ -7,6 +7,11 @@ const body = Archivo({ weight: ["500", "600", "700", "800", "900"], subsets: ["l
 const mono = JetBrains_Mono({ weight: ["400", "500", "600", "700"], subsets: ["latin"], display: "swap" });
 
 const GUTTER = "max(48px, calc((100vw - 1440px) / 2))";
+const NAV_PAD_LEFT = GUTTER;
+// Lines up with the centered 600px terminal's right edge in the 0.95fr right half
+// (47.5vw half − 56px padding, terminal centered). Recompute if the column split,
+// terminal max-width (600px), or right-half padding (56px) changes.
+const NAV_PAD_RIGHT = "max(56px, calc(23.75vw - 300px))";
 
 const NAV = [
   { label: "Bench", href: "#matrix" },
@@ -21,7 +26,7 @@ export default function PrimitiveBench() {
       {/* NAV */}
       <nav
         className="sticky top-0 z-50 flex h-[85px] items-center justify-between border-b-[3px] border-[#1C1A17] bg-[#F4E7C8]"
-        style={{ paddingInline: GUTTER }}
+        style={{ paddingLeft: NAV_PAD_LEFT, paddingRight: NAV_PAD_RIGHT }}
       >
         <div className="flex items-center gap-3">
           <a
