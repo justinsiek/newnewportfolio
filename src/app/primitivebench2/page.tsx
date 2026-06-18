@@ -74,7 +74,7 @@ export default function PrimitiveBench() {
 
           {/* Headline */}
           <h1
-            className={`${display.className} mt-[30px] text-[clamp(44px,5.4vw,76px)] font-extrabold leading-[1.02] tracking-[-0.01em] text-[#1C1A17]`}
+            className={`${display.className} mt-[30px] text-[clamp(48px,5.9vw,80px)] font-extrabold leading-[1.02] tracking-[-0.01em] text-[#1C1A17]`}
           >
             The best API,
             <br />
